@@ -7,14 +7,19 @@ A quick-start guide to scaffolding a React-Vite project and implementing a basic
 
 ---
 
-## Start a new Vite-React project:
+## If you just downloaded the repository and want to see the app:
+```bash
+cd reactContextStateless
+yarn install
+yarn dev
+```
+
+## To build your own start a new Vite-React project:
 ```bash
 cd tutorials
 
 yarn create vite reactContextStateless --template react
 cd reactContextStateless
-yarn install
-yarn dev
 ```
 
 ## Initiate version control:
@@ -52,7 +57,7 @@ function AnyComponent() {
 
     return (
         <div style={{ width:400, height: 200, backgroundColor: 'skyblue' }}>
-            <h1>Component A</h1>
+            <h1>React Component</h1>
             <p>This context data is {data}</p>
         </div>
     );
