@@ -17,7 +17,7 @@ yarn install
 yarn dev
 ```
 
-## Initiate version control and upload to GitHub:
+## Initiate version control:
 ```bash
 git init
 git add .
