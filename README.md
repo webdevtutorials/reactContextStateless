@@ -1,5 +1,10 @@
 # React Context Stateless Demo
 
+<p>
+    <img src="https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+    <img src="https://img.shields.io/badge/Node.js-18.17.0-339933?style=for-the-badge&logo=node.js" alt="Node.js">
+</p>
+
 A quick-start guide to scaffolding a React-Vite project and implementing a basic "Stateless" Context Provider-Consumer relationship.
 
 ---
@@ -32,15 +37,15 @@ code
 
 ```bash
 cd src
-code ComponentA.jsx
+code AnyComponent.jsx
 ```
 
 ```js
-// src / ComponentA.jsx
+// src / AnyComponent.jsx
 import { useContext } from 'react';
 import { MyContext } from './App.jsx';
 
-function ComponentA() {
+function AnyComponent() {
     const data = useContext(MyContext);
 
     return (
@@ -51,7 +56,7 @@ function ComponentA() {
     );
 }
 
-export default ComponentA;
+export default AnyComponent;
 ```
 
 
@@ -69,23 +74,41 @@ const MyContext = createContext(null);
 export { MyContext };
 ```
 
-MyContext is a single returned OBJECT. It is created as following:
-```const MyContext = createContext(null)```
-Creating and storing it in a variable is what makes it a STABLE REFERENCE,
-as opposed to a function that creates a new reference every time it's called.
-It is an IDENTIFIER because it's a named variable that refers to one specific object instance.
-It contains MyContext.Provider and MyContext.Consumer properties, which both point to it.
-Consumers get access to data once wrapped in a provider like this:
-<MyContext.Provider /> and import useContext from 'react' and MyContext from the object location.
-The providers receives data ones the data is assigned to the value property
-in the wrapper like this: <MyContext.Provider value={3} />
-The wrapped consumer access the data like this:
-const value = useContext(MyContext) if it or any of it's parents wrapped in a provider.
-To be retrived, the value must be located in the nearest MyContext.Provider
-If no provider is found, the default value is returned
+## Explanation:
+- MyContext is a single returned **OBJECT**. It is created as following:
+    ```const MyContext = createContext(null)```
 
-Context for stateless data:
-1. Create provider-consumer relationship: ```const MyContext = createContext(null)```
-2. Wrap consumers in a provider: ```<MyContext.Provider />```
-3. Supply the data via "value" property: ```<MyContext.Provider value="My data" />```
-4. Retrieve data using useContext hook: ```const value = useContext(MyContext)```
+- Creating and storing in a variable makes it a **STABLE REFERENCE**,
+as opposed to creating a new reference every time through calling a function.
+
+- It is an **IDENTIFIER** because it's a named variable that refers to one specific object instance.
+
+- It contains **MyContext.Provider** and **MyContext.Consumer** properties, which both point to the same object.
+
+- Consumers get access to data once wrapped in a provider like this:
+    ```<MyContext.Provider />```
+and import useContext from 'react' and MyContext from the object location.
+
+- The providers receives data ones the data is assigned to the value property
+in the wrapper like this:
+    ```<MyContext.Provider value={3} />```
+
+- The wrapped consumer access the data like this:
+    ```const value = useContext(MyContext)```
+if it or any of it's parents wrapped in a provider.
+
+- To be retrived, the value must be located in the nearest MyContext.Provider
+If no provider is found, the default value is returned.
+
+### Context for stateless data:
+1. Create provider-consumer relationship:
+    ```const MyContext = createContext(null)```
+
+2. Wrap consumers in a provider:
+    ```<MyContext.Provider />```
+
+3. Supply the data via "value" property:
+    ```<MyContext.Provider value="My data" />```
+
+4. Retrieve data using useContext hook:
+    ```const value = useContext(MyContext)```

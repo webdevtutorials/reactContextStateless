@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react'
-import ComponentA from './ComponentA';
+import AnyComponent from './AnyComponent.jsx';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -22,7 +22,7 @@ function App() {
       <h1>Vite + React</h1>
 
       <MyContext.Provider value="stateless">
-        <ComponentA/>
+        <AnyComponent/>
       </MyContext.Provider>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
