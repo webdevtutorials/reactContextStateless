@@ -99,7 +99,7 @@ if it or any of it's parents wrapped in a provider.
 - To be retrived, the value must be located in the nearest MyContext.Provider
 If no provider is found, the default value is returned.
 
-## Summary plan:
+## Quick-start step guide:
 1. Create provider-consumer relationship:
     ```const MyContext = createContext(null)```
 
