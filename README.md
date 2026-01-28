@@ -25,7 +25,7 @@ git commit -m "Initial commit"
 git branch -m master main
 ```
 
-## Apload to GitHub:
+## Upload to GitHub:
 ```bash
 gh auth status
 gh repo create reactContextStateless --public --source=. --remote=origin --push
