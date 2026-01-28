@@ -1,7 +1,7 @@
 # React Context Stateless Demo
 
 <p>
-    <img src="https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
     <img src="https://img.shields.io/badge/Node.js-18.17.0-339933?style=for-the-badge&logo=node.js" alt="Node.js">
 </p>
 
@@ -9,13 +9,7 @@ A quick-start guide to scaffolding a React-Vite project and implementing a basic
 
 ---
 
-## 🚀 Quick Start
-If you have already cloned the repository:
-
-```bash
-yarn install
-yarn dev
-```
+## Start a new Vite-React project:
 
 ```bash
 cd tutorials
@@ -23,18 +17,29 @@ cd tutorials
 yarn create vite reactContextStateless --template react
 cd reactContextStateless
 yarn install
+yarn dev
+```
 
+## Initiate version control and upload to GitHub:
+```bash
 git init
 git add .
 git commit -m "Initial commit"
 git branch -m master main
+```
 
+## Apload to GitHub:
+```bash
 gh auth status
 gh repo create reactContextStateless --public --source=. --remote=origin --push
+```
 
+## Open in editor:
+```bash
 code
 ```
 
+## Create static context consuming React component:
 ```bash
 cd src
 code AnyComponent.jsx
@@ -59,8 +64,7 @@ function AnyComponent() {
 export default AnyComponent;
 ```
 
-
-
+## Create context provider in App.jsx:
 ```js
 // src / App.jsx
 import { createContext } from 'react';
@@ -74,7 +78,10 @@ const MyContext = createContext(null);
 export { MyContext };
 ```
 
-## Explanation:
+
+
+
+## Additional theory and explanation:
 - MyContext is a single returned **OBJECT**. It is created as following:
     ```const MyContext = createContext(null)```
 
@@ -100,7 +107,7 @@ if it or any of it's parents wrapped in a provider.
 - To be retrived, the value must be located in the nearest MyContext.Provider
 If no provider is found, the default value is returned.
 
-### Context for stateless data:
+## Summary plan:
 1. Create provider-consumer relationship:
     ```const MyContext = createContext(null)```
 
