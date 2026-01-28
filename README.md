@@ -1,11 +1,4 @@
 # React Context Stateless Demo
-
-<p>
-    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
-    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js" alt="Node.js">
-</p>
-
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
@@ -15,7 +8,6 @@ A quick-start guide to scaffolding a React-Vite project and implementing a basic
 ---
 
 ## Start a new Vite-React project:
-
 ```bash
 cd tutorials
 
@@ -87,13 +79,8 @@ export { MyContext };
 
 
 ## Additional theory and explanation:
-- MyContext is a single returned **OBJECT**. It is created as following:
+- MyContext is a single returned **OBJECT**. When stored in a variable it becomes a **STABLE REFERENCE**, as opposed to creating a new reference every time by calling a function. As such, it is an **IDENTIFIER** because it refers to one specific object instance.
     ```const MyContext = createContext(null)```
-
-- Creating and storing in a variable makes it a **STABLE REFERENCE**,
-as opposed to creating a new reference every time through calling a function.
-
-- It is an **IDENTIFIER** because it's a named variable that refers to one specific object instance.
 
 - It contains **MyContext.Provider** and **MyContext.Consumer** properties, which both point to the same object.
 
