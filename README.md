@@ -1,4 +1,4 @@
-# React Context Stateless Demo
+# React Context for stateless data.
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
@@ -7,14 +7,14 @@ A quick-start guide to scaffolding a React-Vite project and implementing a basic
 
 ---
 
-## If you just downloaded the repository and want to see the app:
+## To run the app:
 ```bash
 cd reactContextStateless
 yarn install
 yarn dev
 ```
 
-## To build your own start a new Vite-React project:
+## To build from scratch start a new Vite-React project:
 ```bash
 cd tutorials
 
@@ -36,7 +36,7 @@ gh auth status
 gh repo create reactContextStateless --public --source=. --remote=origin --push
 ```
 
-## Open in editor:
+## Open in editor (optional):
 ```bash
 code
 ```
@@ -49,6 +49,7 @@ code AnyComponent.jsx
 
 ```js
 // src / AnyComponent.jsx
+
 import { useContext } from 'react';
 import { MyContext } from './App.jsx';
 
@@ -58,7 +59,7 @@ function AnyComponent() {
     return (
         <div style={{ width:400, height: 200, backgroundColor: 'skyblue' }}>
             <h1>React Component</h1>
-            <p>This context data is {data}</p>
+            <p>{ data }</p>
         </div>
     );
 }
@@ -69,6 +70,7 @@ export default AnyComponent;
 ## Create context provider in App.jsx:
 ```js
 // src / App.jsx
+
 import { createContext } from 'react';
 
 const MyContext = createContext(null);
@@ -83,7 +85,7 @@ export { MyContext };
 
 
 
-## Additional theory and explanation:
+## Additional explanation:
 - MyContext is a single returned **OBJECT**. When stored in a variable it becomes a **STABLE REFERENCE**, as opposed to creating a new reference every time by calling a function. As such, it is an **IDENTIFIER** because it refers to one specific object instance.
     ```const MyContext = createContext(null)```
 
@@ -93,13 +95,13 @@ export { MyContext };
     ```<MyContext.Provider />```
 and import useContext from 'react' and MyContext from the object location.
 
-- The providers receives data ones the data is assigned to the value property
-in the wrapper like this:
+- The providers receives data ones the it is passed to the value property
+in the provider like this:
     ```<MyContext.Provider value={3} />```
 
 - The wrapped consumer access the data like this:
     ```const value = useContext(MyContext)```
-if it or any of it's parents wrapped in a provider.
+when it or any of it's parents wrapped in a provider.
 
 - To be retrived, the value must be located in the nearest MyContext.Provider
 If no provider is found, the default value is returned.
@@ -111,8 +113,8 @@ If no provider is found, the default value is returned.
 2. Wrap consumers in a provider:
     ```<MyContext.Provider />```
 
-3. Supply the data via "value" property:
+3. Pass the data to the "value" property:
     ```<MyContext.Provider value="My data" />```
 
-4. Retrieve data using useContext hook:
+4. Retrieve data with useContext hook:
     ```const value = useContext(MyContext)```

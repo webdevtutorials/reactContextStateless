@@ -7,7 +7,7 @@ function AnyComponent() {
     return (
         <div style={{ width: 400, height: 200, backgroundColor: 'skyblue' }}>
             <h1>React Component</h1>
-            <p>This context data is {data}</p>
+            <p>{ data }</p>
         </div>
     );
 }
