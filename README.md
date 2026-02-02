@@ -76,7 +76,7 @@ import { createContext } from 'react';
 const MyContext = createContext(null);
 
 <MyContext.Provider value="stateless">
-    <ComponenetA />
+    <AnyComponenet />
 </MyContext.Provider>
 
 export { MyContext };
