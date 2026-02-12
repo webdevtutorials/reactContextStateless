@@ -1,10 +1,10 @@
 import { useState, createContext } from 'react'
-import ComponentExample from './ComponentExample.jsx';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import MyComponent from './MyComponent'
 import './App.css'
 
-const ContextExample = createContext(null);
+export const MyContext = createContext(undefined)
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,10 +20,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-
-      <ContextExample.Provider value="stateless">
-        <ComponentExample/>
-      </ContextExample.Provider>
+      <MyContext.Provider value="Context Value">
+        <MyComponent />
+      </MyContext.Provider>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -39,5 +38,4 @@ function App() {
   )
 }
 
-export default App;
-export { ContextExample }
+export default App

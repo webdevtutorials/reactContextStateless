@@ -18,22 +18,22 @@ yarn dev
 ```bash
 cd tutorials
 
-yarn create vite reactContextStateless --template react
-cd reactContextStateless
+yarn create vite react-context-stateless --template react
+cd react-context-stateless
 ```
 
 ## Initiate version control:
 ```bash
 git init
 git add .
-git commit -m "Initial commit"
+git commit -m "Empty app"
 git branch -m master main
 ```
 
 ## Upload to GitHub:
 ```bash
 gh auth status
-gh repo create reactContextStateless --public --source=. --remote=origin --push
+gh repo create react-context-stateless --public --source=. --remote=origin --push
 ```
 
 ## Open in editor (optional):
@@ -44,42 +44,36 @@ code
 ## Create static context consuming React component:
 ```bash
 cd src
-code ComponentExample.jsx
+code MyComponent.jsx
 ```
 
 ```js
-// src / ComponentExample.jsx
+// src / MyComponent.jsx
 
-import { useContext } from 'react';
-import { ContextExample } from './App.jsx';
+import { useContext } from 'react'
+import { MyContext } from './App'
 
-function ComponentExample() {
-    const dataExample = useContext(ContextExample);
+export default function MyComponent() {
 
     return (
-        <div style={{ width:400, height: 200, backgroundColor: 'skyblue' }}>
-            <h1>React Component</h1>
-            <p>{ dataExample }</p>
-        </div>
-    );
+        <>
+            <h2>Component</h2>
+            <p>{useContext(MyContext)}</p>
+        </>
+    )
 }
-
-export default ComponentExample;
 ```
 
 ## Create context provider in App.jsx:
 ```js
 // src / App.jsx
-
 import { createContext } from 'react';
 
-const ContextExample = createContext(null);
+export const MyContext = createContext(undefined)
 
-<ContextExample.Provider value="stateless">
-    <AnyComponenet />
-</ContextExample.Provider>
-
-export { ContextExample };
+<MyContext.Provider value="Context Value">
+    <MyComponent />
+</MyContext.Provider>
 ```
 
 
@@ -87,20 +81,20 @@ export { ContextExample };
 
 ## Additional explanation:
 - ContextExample is a single returned **OBJECT**. When stored in a variable it becomes a **STABLE REFERENCE**, as opposed to creating a new reference every time by calling a function. As such, it is an **IDENTIFIER** because it refers to one specific object instance.
-    ```const ContextExample = createContext(null)```
+    ```const MyContext = createContext(undefined)```
 
 - It contains **ContextExample.Provider** and **ContextExample.Consumer** properties, which both point to the same object.
 
 - Consumers get access to dataExample once wrapped in a provider like this:
-    ```<ContextExample.Provider />```
+    ```<MyContext.Provider />```
 and import useContext from 'react' and ContextExample from the object location.
 
 - The providers receives dataExample ones the it is passed to the value property
 in the provider like this:
-    ```<ContextExample.Provider value={3} />```
+    ```<MyContext.Provider value={3} />```
 
 - The wrapped consumer access the dataExample like this:
-    ```const value = useContext(ContextExample)```
+    ```const value = useContext(MyContext)```
 when it or any of it's parents wrapped in a provider.
 
 - To be retrived, the value must be located in the nearest ContextExample.Provider
@@ -108,13 +102,13 @@ If no provider is found, the default value is returned.
 
 ## Quick-start step guide:
 1. Create provider-consumer relationship:
-    ```const ContextExample = createContext(null)```
+    ```const MyContext = createContext(undefined)```
 
 2. Wrap consumers in a provider:
-    ```<ContextExample.Provider />```
+    ```<MyContext.Provider />```
 
 3. Pass the dataExample to the "value" property:
-    ```<ContextExample.Provider value="My dataExample" />```
+    ```<MyContext.Provider value="Context Value" />```
 
 4. Retrieve dataExample with useContext hook:
-    ```const value = useContext(ContextExample)```
+    ```const value = useContext(MyContext)```
